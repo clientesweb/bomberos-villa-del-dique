@@ -1,0 +1,26 @@
+{
+  "name": "Bomberos Voluntarios Villa del Dique",
+  "short_name": "Bomberos VDD",
+  "description": "Asociación de Bomberos Voluntarios de Villa del Dique - Protegiendo vidas desde 2008",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#DC2626",
+  "theme_color": "#DC2626",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/images/favicon-bomberos-voluntarios-vdd.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/images/favicon-bomberos-voluntarios-vdd.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["emergency", "public-service", "community"],
+  "lang": "es-AR"
+}
