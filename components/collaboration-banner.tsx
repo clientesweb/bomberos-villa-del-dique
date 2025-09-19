@@ -29,7 +29,7 @@ export function CollaborationBanner() {
                   className="bg-[#c12d2c] hover:bg-[#a02525] text-white font-montserrat font-semibold px-10 py-4 text-base shadow-lg hover:shadow-xl transition-all duration-300"
                   asChild
                 >
-                  <Link href="/donaciones" className="flex items-center gap-3">
+                  <Link href="#inicio" className="flex items-center gap-3">
                     <Heart className="h-6 w-6" />
                     HACER UNA DONACIÓN
                   </Link>
