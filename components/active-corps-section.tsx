@@ -8,12 +8,12 @@ export function ActiveCorpsSection() {
   const stats = [
     {
       icon: Users,
-      number: "25+",
+      number: "35+",
       label: "Bomberos Activos",
     },
     {
       icon: Shield,
-      number: "16",
+      number: "39",
       label: "Años de Servicio",
     },
     {

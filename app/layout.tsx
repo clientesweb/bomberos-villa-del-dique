@@ -5,6 +5,7 @@ import { Montserrat } from "next/font/google"
 import { Poppins } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { Suspense } from "react"
+import { EmergencyButton } from "@/components/emergency-button"
 import "./globals.css"
 
 const anton = Anton({
@@ -31,11 +32,11 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.bomberosvoluntariosvilladeldique.com.ar"),
   title: {
-    default: "Bomberos Voluntarios Villa del Dique - Protegiendo Vidas desde 2008",
+    default: "Bomberos Voluntarios Villa del Dique - Protegiendo Vidas desde 1986",
     template: "%s | Bomberos Voluntarios Villa del Dique",
   },
   description:
-    "Asociación de Bomberos Voluntarios de Villa del Dique. Estamos para resguardar vidas y bienes de nuestros vecinos desde 2008. Servicio de emergencias 24/7 - Tel: (03546) 497497",
+    "Asociación de Bomberos Voluntarios de Villa del Dique. Estamos para resguardar vidas y bienes de nuestros vecinos desde 1986. Servicio de emergencias 24/7 - Tel: (03546) 497497",
   keywords: [
     "bomberos voluntarios",
     "villa del dique",
@@ -60,9 +61,9 @@ export const metadata: Metadata = {
     locale: "es_AR",
     url: "https://www.bomberosvoluntariosvilladeldique.com.ar",
     siteName: "Bomberos Voluntarios Villa del Dique",
-    title: "Bomberos Voluntarios Villa del Dique - Protegiendo Vidas desde 2008",
+    title: "Bomberos Voluntarios Villa del Dique - Protegiendo Vidas desde 1986",
     description:
-      "Asociación de Bomberos Voluntarios de Villa del Dique. Estamos para resguardar vidas y bienes de nuestros vecinos desde 2008.",
+      "Asociación de Bomberos Voluntarios de Villa del Dique. Estamos para resguardar vidas y bienes de nuestros vecinos desde 1986.",
     images: [
       {
         url: "/images/og-image-bomberos-voluntarios-vdd.jpg",
@@ -75,7 +76,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Bomberos Voluntarios Villa del Dique",
-    description: "Estamos para resguardar vidas y bienes de nuestros vecinos desde 2008",
+    description: "Estamos para resguardar vidas y bienes de nuestros vecinos desde 1986",
     images: ["/images/og-image-bomberos-voluntarios-vdd.jpg"],
   },
   robots: {
@@ -122,6 +123,7 @@ export default function RootLayout({
       </head>
       <body className={`font-sans ${anton.variable} ${montserrat.variable} ${poppins.variable}`}>
         <Suspense fallback={null}>{children}</Suspense>
+        <EmergencyButton />
         <Analytics />
       </body>
     </html>

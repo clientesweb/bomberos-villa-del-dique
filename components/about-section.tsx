@@ -34,7 +34,7 @@ export function AboutSection() {
                 {/* Content Column */}
                 <div className="space-y-6">
                   <p className="font-poppins text-base md:text-lg text-muted-foreground leading-relaxed text-center lg:text-left px-2 lg:px-0">
-                    Somos la Asociación de Bomberos Voluntarios de Villa del Dique, institución inaugurada en 2008 con
+                    Somos la Asociación de Bomberos Voluntarios de Villa del Dique, institución inaugurada en 1986 con
                     el compromiso de proteger la vida, los bienes y el entorno de nuestra comunidad.
                   </p>
 
@@ -83,7 +83,7 @@ export function AboutSection() {
 
                   <div className="text-center lg:text-right">
                     <p className="font-montserrat text-xs md:text-sm text-muted-foreground/70 italic">
-                      Desde 2008 al servicio de la comunidad
+                      Desde 1986 al servicio de la comunidad
                     </p>
                   </div>
                 </div>

@@ -28,7 +28,7 @@ export function Header() {
     { name: "NOSOTROS", href: "/nosotros" },
     { name: "CUERPO ACTIVO", href: "/cuerpo-activo" },
     { name: "COMISIÓN DIRECTIVA", href: "/comision-directiva" },
-    { name: "ASOCIAR", href: "/donaciones" },
+    { name: "ASOCIATE", href: "/asociate" },
   ]
 
   return (
@@ -98,10 +98,10 @@ export function Header() {
                   COMISIÓN DIRECTIVA
                 </Link>
                 <Link
-                  href="/donaciones"
+                  href="/asociate"
                   className="text-white hover:text-yellow-300 transition-colors font-semibold text-sm lg:text-base xl:text-lg tracking-wide"
                 >
-                  ASOCIAR
+                  ASOCIATE
                 </Link>
               </div>
             </div>

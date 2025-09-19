@@ -30,7 +30,7 @@ export function Footer() {
                 "El bombero tiene una vocación de servicio que no se puede explicar con palabras."
               </p>
               <p className="text-white/80 text-sm lg:text-base">
-                Estamos para resguardar vidas y bienes de nuestros vecinos desde 2008.
+                Estamos para resguardar vidas y bienes de nuestros vecinos desde 1986.
               </p>
             </div>
 

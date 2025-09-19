@@ -32,20 +32,19 @@ export function HeroBanner() {
               ESTAMOS PARA
             </span>
             <span
-              className="block text-[#c12d2c] animate-pulse-glow text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl mb-1 sm:mb-2 font-black"
+              className="block text-white animate-pulse-glow text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl mb-1 sm:mb-2 font-black"
               style={{
-                textShadow: "2px 2px 4px rgba(0,0,0,0.8), 4px 4px 8px rgba(0,0,0,0.6), 6px 6px 12px rgba(0,0,0,0.4)",
+                textShadow:
+                  "2px 2px 4px rgba(193,45,44,0.8), 4px 4px 8px rgba(193,45,44,0.6), 6px 6px 12px rgba(193,45,44,0.4)",
+                animation: "pulse-red 2s ease-in-out infinite alternate",
               }}
             >
               RESGUARDAR VIDAS
             </span>
-            <span className="block text-shadow-lg text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl">
-              Y BIENES DE NUESTROS VECINOS
-            </span>
           </h1>
 
           <p className="font-montserrat font-semibold text-base sm:text-lg md:text-xl lg:text-2xl mb-6 sm:mb-8 lg:mb-10 text-white/95 text-shadow max-w-4xl mx-auto px-2">
-            Bomberos Voluntarios Villa del Dique - Desde 2008 al servicio de la comunidad
+            Bomberos Voluntarios Villa del Dique - Desde 1986 al servicio de la comunidad
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center px-4 sm:px-0">
@@ -102,6 +101,17 @@ export function HeroBanner() {
           </div>
         </div>
       </div>
+
+      <style jsx>{`
+        @keyframes pulse-red {
+          0% {
+            text-shadow: 2px 2px 4px rgba(193,45,44,0.8), 4px 4px 8px rgba(193,45,44,0.6), 6px 6px 12px rgba(193,45,44,0.4);
+          }
+          100% {
+            text-shadow: 2px 2px 8px rgba(193,45,44,1), 4px 4px 16px rgba(193,45,44,0.8), 6px 6px 24px rgba(193,45,44,0.6);
+          }
+        }
+      `}</style>
     </section>
   )
 }

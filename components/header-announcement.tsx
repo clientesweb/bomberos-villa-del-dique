@@ -8,7 +8,7 @@ export function HeaderAnnouncement() {
     "Emergencias 24/7: (03546) 497497 - Siempre listos para ayudar",
     "Capacitación constante para proteger a nuestra comunidad",
     "Tu donación nos ayuda a salvar vidas - Alias: bomberos.villa.dique",
-    "Únete como voluntario - Vocación de servicio desde 2008",
+    "Únete como voluntario - Vocación de servicio desde 1986",
     "Protegemos vidas y bienes en Villa del Dique y la región",
   ]
 
