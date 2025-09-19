@@ -181,7 +181,7 @@ export default function CuerpoActivoPage() {
                     poster="/images/portada-video-cuerpo-activo.webp"
                     preload="metadata"
                   >
-                    <source src="https://blobs.vusercontent.net/blob/nner-bomberos-voluntarios-villa-del-dique-XyjPcsZqDufhWUhZu6JughVKBuW1sA.mp4" type="video/mp4" />
+                    <source src="/videos/cuerpo-activo.mp4" type="video/mp4" />
                     Tu navegador no soporta el elemento de video.
                   </video>
                 </div>
