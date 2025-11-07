@@ -5,6 +5,7 @@ import { ActiveCorpsSection } from "@/components/active-corps-section"
 import { NewsSection } from "@/components/news-section"
 import { CollaborationBanner } from "@/components/collaboration-banner"
 import { Footer } from "@/components/footer"
+import { AnnouncementModal } from "@/components/announcement-modal"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -65,6 +66,11 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <div className="min-h-screen">
+      <AnnouncementModal
+        imageSrc="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/asamblea-general-publicidad-65aiX382q08iS6fD2hv7IbKBI1DznJ.webp"
+        imageAlt="Convocatoria a Asamblea General - Bomberos Voluntarios Villa del Dique"
+        storageKey="assembly-announcement-2025"
+      />
       <Header />
       <main>
         <HeroBanner />
