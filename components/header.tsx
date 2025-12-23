@@ -5,7 +5,6 @@ import Image from "next/image"
 import Link from "next/link"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { HeaderAnnouncement } from "./header-announcement"
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -28,13 +27,11 @@ export function Header() {
     { name: "NOSOTROS", href: "/nosotros" },
     { name: "CUERPO ACTIVO", href: "/cuerpo-activo" },
     { name: "COMISIÓN DIRECTIVA", href: "/comision-directiva" },
-    { name: "ASOCIATE", href: "/asociate" },
+    { name: "ASOCIATE", href: "/socios" },
   ]
 
   return (
     <>
-      <HeaderAnnouncement />
-
       <header className="bg-[#c12d2c] border-b border-red-800 sticky top-0 z-50 shadow-lg">
         <div className="container mx-auto px-4">
           {/* Mobile Header */}
@@ -98,7 +95,7 @@ export function Header() {
                   COMISIÓN DIRECTIVA
                 </Link>
                 <Link
-                  href="/asociate"
+                  href="/socios"
                   className="text-white hover:text-yellow-300 transition-colors font-semibold text-sm lg:text-base xl:text-lg tracking-wide"
                 >
                   ASOCIATE

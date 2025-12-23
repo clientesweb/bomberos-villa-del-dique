@@ -3,14 +3,7 @@
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Phone, Heart } from "lucide-react"
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog"
+import Link from "next/link"
 
 export function HeroBanner() {
   const [isDialogOpen, setIsDialogOpen] = useState(false)
@@ -60,44 +53,17 @@ export function HeroBanner() {
               </a>
             </Button>
 
-            <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-              <DialogTrigger asChild>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-2 border-white text-white hover:bg-white hover:text-[#c12d2c] font-bold px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg bg-transparent shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 w-full sm:w-auto btn-hover"
-                >
-                  <Heart className="h-5 w-5 mr-2" />
-                  Donar Ahora
-                </Button>
-              </DialogTrigger>
-              <DialogContent className="sm:max-w-md mx-4">
-                <DialogHeader>
-                  <DialogTitle className="text-center text-[#c12d2c] text-xl font-montserrat font-semibold">
-                    Datos para Donación
-                  </DialogTitle>
-                  <DialogDescription className="text-center text-base font-poppins">
-                    Tu aporte nos ayuda a seguir salvando vidas
-                  </DialogDescription>
-                </DialogHeader>
-                <div className="space-y-4 py-4">
-                  <div className="text-center space-y-3 bg-gray-50 p-4 rounded-lg">
-                    <p className="text-base font-poppins">
-                      <strong className="text-[#c12d2c]">Alias:</strong> bomberos.villa.dique
-                    </p>
-                    <p className="text-base font-poppins">
-                      <strong className="text-[#c12d2c]">Nombre:</strong> Sociedad De Bomberos Voluntarios De Villa
-                    </p>
-                    <p className="text-base font-poppins">
-                      <strong className="text-[#c12d2c]">CUIT/CUIL:</strong> 30-66868497-8
-                    </p>
-                    <p className="text-base font-poppins">
-                      <strong className="text-[#c12d2c]">Entidad:</strong> Mercado Pago
-                    </p>
-                  </div>
-                </div>
-              </DialogContent>
-            </Dialog>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-2 border-white text-white hover:bg-white hover:text-[#c12d2c] font-bold px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg bg-transparent shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 w-full sm:w-auto btn-hover"
+              asChild
+            >
+              <Link href="/socios" className="flex items-center justify-center gap-2">
+                <Heart className="h-5 w-5" />
+                Donar Ahora
+              </Link>
+            </Button>
           </div>
         </div>
       </div>

@@ -54,19 +54,23 @@ export default function ComisionDirectivaPage() {
             <h1 className="text-4xl md:text-5xl font-anton text-center text-[#c12d2c] mb-8">COMISIÓN DIRECTIVA</h1>
 
             <div className="bg-white rounded-lg shadow-lg p-8">
-              {/* Presidente y Tesorera */}
+              {/* Presidente, Secretaria y Tesorera */}
               <div className="mb-8">
                 <h2 className="text-2xl font-anton text-[#c12d2c] mb-6 border-b-2 border-red-200 pb-2">
                   AUTORIDADES PRINCIPALES
                 </h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   <div className="bg-red-50 p-6 rounded-lg border-l-4 border-[#c12d2c]">
                     <h3 className="text-xl font-semibold text-gray-800 mb-2">Presidente</h3>
-                    <p className="text-lg text-gray-700">Sr. Cuello Ramón</p>
+                    <p className="text-lg text-gray-700">Ortiz Rodríguez María del Lujan</p>
+                  </div>
+                  <div className="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-500">
+                    <h3 className="text-xl font-semibold text-gray-800 mb-2">Secretaria</h3>
+                    <p className="text-lg text-gray-700">Flores Oscar Eduardo</p>
                   </div>
                   <div className="bg-yellow-50 p-6 rounded-lg border-l-4 border-yellow-500">
                     <h3 className="text-xl font-semibold text-gray-800 mb-2">Tesorera</h3>
-                    <p className="text-lg text-gray-700">Sra. Ortiz María</p>
+                    <p className="text-lg text-gray-700">Ramírez Maria Gloria</p>
                   </div>
                 </div>
               </div>
@@ -77,23 +81,56 @@ export default function ComisionDirectivaPage() {
                   VOCALES TITULARES
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {["Flores Oscar", "Grangetto Roberto", "Pérez Silvia", "Pereyra Roxana"].map((vocal, index) => (
-                    <div key={index} className="bg-blue-50 p-4 rounded-lg">
+                  {[
+                    "Grangetto Roberto",
+                    "Cuello Ramón Héctor",
+                    "Pérez Silvia Noemí",
+                    "Pereyra Roxana Edith",
+                    "García Yanina Águeda",
+                  ].map((vocal, index) => (
+                    <div key={index} className="bg-purple-50 p-4 rounded-lg border-l-4 border-purple-300">
                       <p className="font-medium text-gray-800">{vocal}</p>
                     </div>
                   ))}
                 </div>
               </div>
 
-              {/* Otros Miembros */}
+              {/* Vocales Suplentes */}
               <div className="mb-8">
                 <h2 className="text-2xl font-anton text-[#c12d2c] mb-6 border-b-2 border-red-200 pb-2">
-                  OTROS MIEMBROS
+                  VOCALES SUPLENTES
                 </h2>
-                <div className="bg-gray-50 p-6 rounded-lg">
-                  <p className="text-gray-700 text-center">
-                    Más ocho (8) miembros en diferentes puestos dentro de la comisión.
-                  </p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {["Aviles Damian Andres", "Tisera Norma Cecilia"].map((vocal, index) => (
+                    <div key={index} className="bg-green-50 p-4 rounded-lg border-l-4 border-green-300">
+                      <p className="font-medium text-gray-800">{vocal}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Revisores de Cuenta */}
+              <div className="mb-8">
+                <h2 className="text-2xl font-anton text-[#c12d2c] mb-6 border-b-2 border-red-200 pb-2">
+                  REVISORES DE CUENTA
+                </h2>
+                <div className="space-y-4">
+                  <div>
+                    <h3 className="text-lg font-semibold text-gray-800 mb-3">Titulares</h3>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                      {["Gaspero Sandra Irene", "Corvalan Sonia", "Schmit Marcelo"].map((revisor, index) => (
+                        <div key={index} className="bg-orange-50 p-4 rounded-lg border-l-4 border-orange-300">
+                          <p className="font-medium text-gray-800">{revisor}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-gray-800 mb-3">Suplente</h3>
+                    <div className="bg-orange-50 p-4 rounded-lg border-l-4 border-orange-300">
+                      <p className="font-medium text-gray-800">Carolina Aviles</p>
+                    </div>
+                  </div>
                 </div>
               </div>
 
