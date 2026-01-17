@@ -64,15 +64,6 @@ const donationOptions = [
     buttonColor: "bg-yellow-600 hover:bg-yellow-700",
   },
   {
-    title: "Cuota Anual",
-    amount: "$12.000",
-    description: "Pago anual anticipado de socio",
-    link: "https://mpago.la/2hEbbC7",
-    icon: Flame,
-    color: "bg-orange-50 border-orange-200",
-    buttonColor: "bg-orange-600 hover:bg-orange-700",
-  },
-  {
     title: "Aporte Especial",
     amount: "$15.000",
     description: "Contribución para mejoras edilicias",
