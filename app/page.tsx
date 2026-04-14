@@ -1,34 +1,32 @@
 import { Header } from "@/components/header"
 import { HeroBanner } from "@/components/hero-banner"
 import { AboutSection } from "@/components/about-section"
-import { ActiveCorpsSection } from "@/components/active-corps-section"
 import { NewsSection } from "@/components/news-section"
 import { CollaborationBanner } from "@/components/collaboration-banner"
 import { Footer } from "@/components/footer"
-// import { AnnouncementModal } from "@/components/announcement-modal" // Disabled announcement modal temporarily
 
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
   title: "Bomberos Voluntarios Villa del Dique - Protegiendo Vidas desde 1986",
   description:
-    "Asociación de Bomberos Voluntarios de Villa del Dique, Córdoba. Servicio de emergencias 24/7. Rescate, incendios forestales y estructurales. Tel: (03546) 497497. Desde 1986 al servicio de la comunidad.",
+    "Asociacion de Bomberos Voluntarios de Villa del Dique, Cordoba. Servicio de emergencias 24/7. Rescate, incendios forestales y estructurales. Tel: (03546) 497497. Desde 1986 al servicio de la comunidad.",
   keywords: [
     "bomberos voluntarios villa del dique",
     "emergencias villa del dique",
-    "bomberos córdoba",
+    "bomberos cordoba",
     "rescate villa del dique",
     "incendios forestales",
     "emergencias 24/7",
     "bomberos argentina",
-    "servicio emergencias córdoba",
-    "rescate acuático",
-    "bomberos voluntarios córdoba",
+    "servicio emergencias cordoba",
+    "rescate acuatico",
+    "bomberos voluntarios cordoba",
   ],
   openGraph: {
     title: "Bomberos Voluntarios Villa del Dique - Protegiendo Vidas desde 1986",
     description:
-      "Servicio de emergencias 24/7 en Villa del Dique, Córdoba. Rescate, incendios forestales y estructurales. Desde 1986 al servicio de la comunidad.",
+      "Servicio de emergencias 24/7 en Villa del Dique, Cordoba. Rescate, incendios forestales y estructurales. Desde 1986 al servicio de la comunidad.",
     url: "https://www.bomberosvoluntariosvilladeldique.com.ar",
     siteName: "Bomberos Voluntarios Villa del Dique",
     images: [
@@ -45,7 +43,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Bomberos Voluntarios Villa del Dique",
-    description: "Servicio de emergencias 24/7 en Villa del Dique, Córdoba. Desde 1986 protegiendo vidas.",
+    description: "Servicio de emergencias 24/7 en Villa del Dique, Cordoba. Desde 1986 protegiendo vidas.",
     images: ["/images/og-image-bomberos-voluntarios-vdd.jpg"],
   },
   robots: {
@@ -66,14 +64,13 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-background">
       <Header />
       <main>
         <HeroBanner />
         <AboutSection />
-        <ActiveCorpsSection />
-        <NewsSection />
         <CollaborationBanner />
+        <NewsSection />
       </main>
       <Footer />
     </div>

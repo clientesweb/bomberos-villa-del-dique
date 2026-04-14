@@ -1,83 +1,85 @@
 "use client"
 
-import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { Phone, Heart } from "lucide-react"
+import { Heart, ArrowRight, Phone } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 
 export function HeroBanner() {
-  const [isDialogOpen, setIsDialogOpen] = useState(false)
-
   return (
-    <section className="relative h-[60vh] sm:h-[70vh] lg:h-[80vh] min-h-[400px] sm:min-h-[500px] lg:min-h-[600px] overflow-hidden">
-      {/* Video Background */}
-      <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover">
-        <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/nner-bomberos-voluntarios-villa-del-dique-XyjPcsZqDufhWUhZu6JughVKBuW1sA.mp4" type="video/mp4" />
-      </video>
-
-      <div className="absolute inset-0 bg-black/50" />
+    <section className="relative min-h-[100svh] bg-foreground overflow-hidden">
+      {/* Background Image with Overlay */}
+      <div className="absolute inset-0">
+        <Image
+          src="/images/cuerpo-activo.webp"
+          alt="Bomberos Voluntarios Villa del Dique en accion"
+          fill
+          className="object-cover opacity-40 sm:opacity-30"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-t sm:bg-gradient-to-b from-foreground via-foreground/40 to-foreground/80 sm:from-foreground/80 sm:via-foreground/60 sm:to-foreground" />
+      </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 h-full flex items-center justify-center">
-        <div className="text-center text-white max-w-6xl">
-          <h1 className="font-anton font-bold mb-4 sm:mb-6 lg:mb-8 text-balance leading-[0.9] sm:leading-[0.95] lg:leading-tight">
-            <span className="block text-shadow-lg text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl mb-1 sm:mb-2">
-              ESTAMOS PARA
-            </span>
-            <span
-              className="block text-white animate-pulse-glow text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl mb-1 sm:mb-2 font-black"
-              style={{
-                textShadow:
-                  "2px 2px 4px rgba(193,45,44,0.8), 4px 4px 8px rgba(193,45,44,0.6), 6px 6px 12px rgba(193,45,44,0.4)",
-                animation: "pulse-red 2s ease-in-out infinite alternate",
-              }}
-            >
-              RESGUARDAR VIDAS
-            </span>
-          </h1>
+      <div className="relative z-10 min-h-[100svh] flex flex-col">
+        {/* Main Content Area */}
+        <div className="flex-1 flex items-end sm:items-center px-5 sm:px-6 lg:px-12 pb-8 sm:pb-0 pt-24 sm:pt-20">
+          <div className="w-full max-w-4xl">
+            {/* Badge */}
+            <div className="mb-4 sm:mb-8">
+              <span className="inline-block text-primary font-montserrat font-semibold text-[10px] sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase">
+                Desde 1986 al servicio de la comunidad
+              </span>
+            </div>
 
-          <p className="font-montserrat font-semibold text-base sm:text-lg md:text-xl lg:text-2xl mb-6 sm:mb-8 lg:mb-10 text-white/95 text-shadow max-w-4xl mx-auto px-2">
-            Bomberos Voluntarios Villa del Dique - Desde 1986 al servicio de la comunidad
-          </p>
+            {/* Main Headline */}
+            <h1 className="font-anton text-[15vw] sm:text-[10vw] md:text-[8vw] lg:text-[7vw] text-white leading-[0.9] sm:leading-[0.95] mb-4 sm:mb-8">
+              <span className="block">ESTAMOS PARA</span>
+              <span className="block"><span className="text-primary">RESGUARDAR</span> VIDAS</span>
+            </h1>
 
-          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center px-4 sm:px-0">
-            <Button
-              size="lg"
-              className="bg-[#F59E0B] hover:bg-[#D97706] text-white font-bold px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 w-full sm:w-auto btn-hover"
-              asChild
-            >
-              <a href="tel:3546497497" className="flex items-center justify-center gap-2">
-                <Phone className="h-5 w-5" />
-                <span className="hidden sm:inline">(03546) 497497</span>
-                <span className="sm:hidden">Llamar Emergencia</span>
-              </a>
-            </Button>
+            {/* Subtitle - Hidden on mobile, shown on larger screens */}
+            <p className="hidden sm:block font-poppins text-white/70 text-base sm:text-lg md:text-xl max-w-xl mb-8 sm:mb-12 leading-relaxed">
+              Bomberos Voluntarios de Villa del Dique. Protegemos vidas, bienes y el entorno de nuestra comunidad. Tu apoyo hace posible nuestra labor.
+            </p>
 
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-2 border-white text-white hover:bg-white hover:text-[#c12d2c] font-bold px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg bg-transparent shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 w-full sm:w-auto btn-hover"
-              asChild
-            >
-              <Link href="/socios" className="flex items-center justify-center gap-2">
-                <Heart className="h-5 w-5" />
-                Donar Ahora
-              </Link>
-            </Button>
+            {/* CTA Buttons - Stacked on mobile */}
+            <div className="flex flex-col gap-3 sm:flex-row sm:gap-4">
+              <Button
+                size="lg"
+                className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-white font-montserrat font-semibold px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base transition-all duration-300 group"
+                asChild
+              >
+                <Link href="/socios" className="flex items-center justify-center gap-2 sm:gap-3">
+                  <Heart className="h-4 w-4 sm:h-5 sm:w-5" />
+                  DONAR AHORA
+                  <ArrowRight className="h-3 w-3 sm:h-4 sm:w-4 transition-transform group-hover:translate-x-1" />
+                </Link>
+              </Button>
+
+              <Button
+                size="lg"
+                variant="outline"
+                className="w-full sm:w-auto border-2 border-white/30 text-white hover:bg-white hover:text-foreground font-montserrat font-semibold px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base bg-transparent transition-all duration-300"
+                asChild
+              >
+                <a href="tel:3546497497" className="flex items-center justify-center gap-2 sm:gap-3">
+                  <Phone className="h-4 w-4 sm:h-5 sm:w-5" />
+                  <span className="sm:hidden">EMERGENCIAS</span>
+                  <span className="hidden sm:inline">EMERGENCIAS: (03546) 497497</span>
+                </a>
+              </Button>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile scroll indicator */}
+        <div className="sm:hidden flex justify-center pb-6">
+          <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center pt-2">
+            <div className="w-1 h-2 bg-white/50 rounded-full animate-bounce" />
           </div>
         </div>
       </div>
-
-      <style jsx>{`
-        @keyframes pulse-red {
-          0% {
-            text-shadow: 2px 2px 4px rgba(193,45,44,0.8), 4px 4px 8px rgba(193,45,44,0.6), 6px 6px 12px rgba(193,45,44,0.4);
-          }
-          100% {
-            text-shadow: 2px 2px 8px rgba(193,45,44,1), 4px 4px 16px rgba(193,45,44,0.8), 6px 6px 24px rgba(193,45,44,0.6);
-          }
-        }
-      `}</style>
     </section>
   )
 }

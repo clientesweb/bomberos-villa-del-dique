@@ -1,95 +1,85 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, Shield, Users, Clock } from "lucide-react"
 import Link from "next/link"
-import { useEffect, useState } from "react"
 
 export function AboutSection() {
-  const [currentTagIndex, setCurrentTagIndex] = useState(0)
-  const tags = ["COMPROMISO", "VOCACIÓN DE SERVICIO", "VOLUNTARIADO"]
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentTagIndex((prev) => (prev + 1) % tags.length)
-    }, 2500)
-    return () => clearInterval(interval)
-  }, [tags.length])
+  const features = [
+    {
+      icon: Shield,
+      title: "Compromiso",
+      description: "Protegemos vidas y bienes con dedicación absoluta"
+    },
+    {
+      icon: Users,
+      title: "Voluntariado",
+      description: "Un equipo unido por la vocación de servicio"
+    },
+    {
+      icon: Clock,
+      title: "24/7",
+      description: "Disponibles las 24 horas, los 365 días del año"
+    }
+  ]
 
   return (
-    <section className="py-12 md:py-16 bg-background" aria-labelledby="about-heading">
-      <div className="container mx-auto px-4">
-        <div className="max-w-5xl mx-auto">
-          <Card className="bg-card border-border shadow-lg overflow-hidden">
-            <CardContent className="p-6 md:p-10">
+    <section className="py-16 sm:py-24 md:py-32 bg-background" aria-labelledby="about-heading">
+      <div className="container mx-auto px-5 sm:px-6 lg:px-12">
+        <div className="max-w-6xl mx-auto">
+          {/* Header */}
+          <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-24 items-start mb-12 sm:mb-20">
+            <div>
+              <span className="font-montserrat text-[10px] sm:text-sm font-semibold tracking-[0.15em] sm:tracking-[0.2em] text-primary uppercase mb-3 sm:mb-4 block">
+                Nuestra Historia
+              </span>
               <h2
                 id="about-heading"
-                className="font-anton text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-center mb-6 md:mb-8 text-[#c12d2c] tracking-wide"
+                className="font-anton text-[11vw] sm:text-4xl md:text-5xl lg:text-6xl text-foreground leading-[0.9] sm:leading-[0.95]"
               >
-                ¿QUIÉNES SOMOS?
+                DESDE 1986
+                <br />
+                <span className="text-primary">AL SERVICIO</span>
+                <br />
+                DE LA COMUNIDAD
               </h2>
+            </div>
+            
+            <div className="lg:pt-12">
+              <p className="font-poppins text-muted-foreground text-base sm:text-lg leading-relaxed mb-6 sm:mb-8">
+                Somos la Asociación de Bomberos Voluntarios de Villa del Dique, una institución fundada con el compromiso de proteger la vida, los bienes y el entorno de nuestra comunidad. Cada día, hombres y mujeres voluntarios trabajan incansablemente para mantener segura nuestra región.
+              </p>
+              
+              <Button
+                asChild
+                variant="outline"
+                className="w-full sm:w-auto border-2 border-foreground text-foreground hover:bg-foreground hover:text-background font-montserrat font-semibold px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base transition-all duration-300 group"
+              >
+                <Link href="/nosotros" className="flex items-center justify-center sm:justify-start gap-3">
+                  CONOCER MÁS
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Link>
+              </Button>
+            </div>
+          </div>
 
-              <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-                {/* Content Column */}
-                <div className="space-y-6">
-                  <p className="font-poppins text-base md:text-lg text-muted-foreground leading-relaxed text-center lg:text-left px-2 lg:px-0">
-                    Somos la Asociación de Bomberos Voluntarios de Villa del Dique, institución inaugurada en 1986 con
-                    el compromiso de proteger la vida, los bienes y el entorno de nuestra comunidad.
-                  </p>
-
-                  <Button
-                    asChild
-                    className="mx-auto lg:mx-0 bg-[#c12d2c] hover:bg-[#a02525] text-white font-montserrat font-semibold px-6 md:px-8 py-2.5 md:py-3 text-sm md:text-base transition-all duration-300 hover:shadow-lg flex w-fit"
-                  >
-                    <Link href="/nosotros" className="flex items-center gap-2">
-                      LEER MÁS
-                      <ArrowRight className="h-4 w-4 md:h-5 md:w-5" />
-                    </Link>
-                  </Button>
-                </div>
-
-                {/* Tags Column with Automatic Slider */}
-                <div className="flex flex-col items-center lg:items-end space-y-4">
-                  <div className="relative w-full max-w-sm">
-                    <div className="overflow-hidden rounded-lg bg-gradient-to-r from-[#c12d2c]/5 to-[#c12d2c]/10 p-1">
-                      <div
-                        className="flex transition-transform duration-700 ease-in-out"
-                        style={{ transform: `translateX(-${currentTagIndex * 100}%)` }}
-                      >
-                        {tags.map((tag, index) => (
-                          <div key={index} className="w-full flex-shrink-0 flex items-center justify-center py-4 px-6">
-                            <span className="bg-[#c12d2c] text-white px-4 md:px-6 py-2 md:py-3 rounded-full font-montserrat font-semibold text-xs md:text-sm lg:text-base text-center shadow-lg whitespace-nowrap">
-                              {tag}
-                            </span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div className="flex justify-center mt-3 space-x-2">
-                      {tags.map((_, index) => (
-                        <button
-                          key={index}
-                          className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                            index === currentTagIndex ? "bg-[#c12d2c] w-6" : "bg-[#c12d2c]/30 hover:bg-[#c12d2c]/50"
-                          }`}
-                          onClick={() => setCurrentTagIndex(index)}
-                          aria-label={`Mostrar ${tags[index]}`}
-                        />
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="text-center lg:text-right">
-                    <p className="font-montserrat text-xs md:text-sm text-muted-foreground/70 italic">
-                      Desde 1986 al servicio de la comunidad
-                    </p>
-                  </div>
-                </div>
+          {/* Features */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+            {features.map((feature, index) => (
+              <div 
+                key={index}
+                className="group p-6 sm:p-8 border border-border hover:border-primary active:border-primary transition-colors duration-300"
+              >
+                <feature.icon className="h-6 w-6 sm:h-8 sm:w-8 text-primary mb-4 sm:mb-6" />
+                <h3 className="font-montserrat font-semibold text-lg sm:text-xl text-foreground mb-2 sm:mb-3">
+                  {feature.title}
+                </h3>
+                <p className="font-poppins text-muted-foreground text-sm sm:text-base leading-relaxed">
+                  {feature.description}
+                </p>
               </div>
-            </CardContent>
-          </Card>
+            ))}
+          </div>
         </div>
       </div>
     </section>

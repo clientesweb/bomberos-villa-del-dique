@@ -3,11 +3,12 @@
 import { useState, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { Menu, X } from "lucide-react"
+import { Menu, X, Heart, Phone, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
 
@@ -23,152 +24,163 @@ export function Header() {
     }
   }, [isMenuOpen])
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50)
+    }
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+
   const menuItems = [
-    { name: "NOSOTROS", href: "/nosotros" },
-    { name: "CUERPO ACTIVO", href: "/cuerpo-activo" },
-    { name: "COMISIÓN DIRECTIVA", href: "/comision-directiva" },
-    { name: "ASOCIATE", href: "/socios" },
+    { name: "Nosotros", href: "/nosotros" },
+    { name: "Cuerpo Activo", href: "/cuerpo-activo" },
+    { name: "Comisión Directiva", href: "/comision-directiva" },
   ]
 
   return (
     <>
-      <header className="bg-[#c12d2c] border-b border-red-800 sticky top-0 z-50 shadow-lg">
-        <div className="container mx-auto px-4">
-          {/* Mobile Header */}
-          <div className="flex items-center justify-between py-3 md:hidden">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={toggleMenu}
-              className="text-white hover:bg-red-800 hover:text-white"
-            >
-              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </Button>
-            <Link href="/" className="flex-1 flex justify-center">
+      <header 
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          isScrolled 
+            ? "bg-background/95 backdrop-blur-md border-b border-border" 
+            : "bg-transparent"
+        }`}
+      >
+        <div className="container mx-auto px-4 sm:px-6 lg:px-12">
+          <div className="flex items-center justify-between h-16 sm:h-20">
+            {/* Logo */}
+            <Link href="/" className="flex items-center gap-2 sm:gap-3">
               <Image
                 src="/images/logo-bomberos-voluntarios-vdd.webp"
                 alt="Bomberos Voluntarios Villa del Dique"
-                width={100}
-                height={100}
-                className="object-contain"
+                width={40}
+                height={40}
+                className="w-9 h-9 sm:w-[50px] sm:h-[50px] object-contain"
               />
+              <div className={`hidden sm:block transition-colors duration-300 ${isScrolled ? "text-foreground" : "text-white"}`}>
+                <p className="font-montserrat font-bold text-sm leading-tight">BOMBEROS</p>
+                <p className="font-montserrat text-xs opacity-70">Villa del Dique</p>
+              </div>
             </Link>
-            <div className="w-10" /> {/* Spacer for centering */}
-          </div>
 
-          {/* Desktop Header */}
-          <div className="hidden md:flex items-center justify-center py-4 lg:py-6">
-            <div className="flex items-center gap-4 lg:gap-8 xl:gap-12">
-              {/* Left Menu Items */}
-              <div className="flex items-center gap-3 lg:gap-6">
-                <Link
-                  href="/nosotros"
-                  className="text-white hover:text-yellow-300 transition-colors font-semibold text-sm lg:text-base xl:text-lg tracking-wide"
-                >
-                  NOSOTROS
-                </Link>
-                <Link
-                  href="/cuerpo-activo"
-                  className="text-white hover:text-yellow-300 transition-colors font-semibold text-sm lg:text-base xl:text-lg tracking-wide"
-                >
-                  CUERPO ACTIVO
-                </Link>
-              </div>
-
-              {/* Centered Logo */}
-              <Link href="/" className="mx-4 lg:mx-8">
-                <Image
-                  src="/images/logo-bomberos-voluntarios-vdd.webp"
-                  alt="Bomberos Voluntarios Villa del Dique"
-                  width={90}
-                  height={90}
-                  className="object-contain lg:w-[100px] lg:h-[100px]"
-                />
-              </Link>
-
-              {/* Right Menu Items */}
-              <div className="flex items-center gap-3 lg:gap-6">
-                <Link
-                  href="/comision-directiva"
-                  className="text-white hover:text-yellow-300 transition-colors font-semibold text-sm lg:text-base xl:text-lg tracking-wide"
-                >
-                  COMISIÓN DIRECTIVA
-                </Link>
-                <Link
-                  href="/socios"
-                  className="text-white hover:text-yellow-300 transition-colors font-semibold text-sm lg:text-base xl:text-lg tracking-wide"
-                >
-                  ASOCIATE
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </header>
-
-      {isMenuOpen && (
-        <>
-          {/* Overlay */}
-          <div className="fixed inset-0 bg-black/50 z-40 md:hidden" onClick={() => setIsMenuOpen(false)} />
-
-          {/* Menú deslizante */}
-          <div className="fixed top-0 left-0 h-full w-80 bg-[#c12d2c] z-50 md:hidden transform transition-transform duration-300 ease-in-out shadow-2xl">
-            <div className="flex items-center justify-between p-6 border-b border-red-800">
-              <Image
-                src="/images/logo-bomberos-voluntarios-vdd.webp"
-                alt="Bomberos Voluntarios Villa del Dique"
-                width={100}
-                height={100}
-                className="object-contain"
-              />
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={toggleMenu}
-                className="text-white hover:bg-red-800 hover:text-white"
-              >
-                <X className="h-6 w-6" />
-              </Button>
-            </div>
-
-            <nav className="py-8">
-              {menuItems.map((item, index) => (
+            {/* Desktop Navigation */}
+            <nav className="hidden lg:flex items-center gap-8">
+              {menuItems.map((item) => (
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="block px-6 py-4 text-white hover:bg-red-800 hover:text-yellow-300 transition-all duration-200 text-lg font-semibold border-b border-red-800/30 tracking-wide"
-                  onClick={() => setIsMenuOpen(false)}
-                  style={{
-                    animationDelay: `${index * 100}ms`,
-                    animation: isMenuOpen ? "slideInLeft 0.3s ease-out forwards" : "none",
-                  }}
+                  className={`font-montserrat text-sm font-medium transition-colors duration-300 hover:text-primary ${
+                    isScrolled ? "text-foreground" : "text-white"
+                  }`}
                 >
                   {item.name}
                 </Link>
               ))}
             </nav>
 
-            <div className="absolute bottom-6 left-6 right-6">
-              <p className="text-white/80 text-sm text-center">
-                Estamos para resguardar vidas y bienes de nuestros vecinos
-              </p>
+            {/* CTA Button - Desktop */}
+            <div className="hidden lg:block">
+              <Button
+                asChild
+                className="bg-primary hover:bg-primary/90 text-white font-montserrat font-semibold px-6 py-5 text-sm transition-all duration-300"
+              >
+                <Link href="/socios" className="flex items-center gap-2">
+                  <Heart className="h-4 w-4" />
+                  DONAR
+                </Link>
+              </Button>
             </div>
-          </div>
-        </>
-      )}
 
-      <style jsx>{`
-        @keyframes slideInLeft {
-          from {
-            opacity: 0;
-            transform: translateX(-20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateX(0);
-          }
-        }
-      `}</style>
+            {/* Mobile Menu Button */}
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={toggleMenu}
+              className={`lg:hidden transition-colors h-10 w-10 ${
+                isScrolled ? "text-foreground hover:bg-muted" : "text-white hover:bg-white/10"
+              }`}
+            >
+              {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </Button>
+          </div>
+        </div>
+      </header>
+
+      {/* Mobile Menu Overlay */}
+      <div 
+        className={`fixed inset-0 bg-foreground/90 backdrop-blur-sm z-40 lg:hidden transition-opacity duration-300 ${
+          isMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+        }`}
+        onClick={() => setIsMenuOpen(false)} 
+      />
+
+      {/* Mobile Menu */}
+      <div 
+        className={`fixed inset-y-0 right-0 w-full max-w-[320px] bg-foreground z-50 lg:hidden transform transition-transform duration-300 ease-out ${
+          isMenuOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+        {/* Mobile Menu Header */}
+        <div className="flex items-center justify-between p-4 border-b border-white/10">
+          <div className="flex items-center gap-2">
+            <Image
+              src="/images/logo-bomberos-voluntarios-vdd.webp"
+              alt="Bomberos Voluntarios Villa del Dique"
+              width={36}
+              height={36}
+              className="object-contain"
+            />
+            <span className="font-montserrat font-bold text-white text-sm">BOMBEROS VDD</span>
+          </div>
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={toggleMenu}
+            className="text-white hover:bg-white/10 h-10 w-10"
+          >
+            <X className="h-5 w-5" />
+          </Button>
+        </div>
+
+        {/* Mobile Menu Nav */}
+        <nav className="px-4 py-6">
+          {menuItems.map((item, index) => (
+            <Link
+              key={item.name}
+              href={item.href}
+              className="flex items-center justify-between py-4 text-white/80 hover:text-white active:text-primary transition-colors duration-200 font-montserrat text-base font-medium border-b border-white/5"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              {item.name}
+              <ArrowRight className="h-4 w-4 opacity-50" />
+            </Link>
+          ))}
+        </nav>
+
+        {/* Mobile Menu Footer */}
+        <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-white/10 space-y-3">
+          {/* Emergency Call */}
+          <a
+            href="tel:3546497497"
+            className="flex items-center justify-center gap-2 w-full py-3 bg-white/5 text-white font-montserrat text-sm font-medium active:bg-white/10 transition-colors"
+          >
+            <Phone className="h-4 w-4 text-primary" />
+            EMERGENCIAS: 497497
+          </a>
+          
+          {/* Donate Button */}
+          <Button
+            asChild
+            className="w-full bg-primary hover:bg-primary/90 active:bg-primary/80 text-white font-montserrat font-semibold py-5 text-sm"
+          >
+            <Link href="/socios" onClick={() => setIsMenuOpen(false)} className="flex items-center justify-center gap-2">
+              <Heart className="h-4 w-4" />
+              DONAR AHORA
+            </Link>
+          </Button>
+        </div>
+      </div>
     </>
   )
 }

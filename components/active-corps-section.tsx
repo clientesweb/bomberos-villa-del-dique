@@ -13,7 +13,7 @@ export function ActiveCorpsSection() {
     },
     {
       icon: Shield,
-      number: "39",
+      number: "40",
       label: "Años de Servicio",
     },
     {
@@ -81,7 +81,7 @@ export function ActiveCorpsSection() {
                   className="bg-[#c12d2c] hover:bg-[#a02525] text-white font-montserrat font-semibold px-8 py-4 text-base rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
                 >
                   <Link href="/cuerpo-activo" className="flex items-center gap-3">
-                    CONOCÉ A NUESTRO EQUIPO
+                    CONOCE A NUESTRO EQUIPO
                     <ArrowRight className="h-5 w-5" />
                   </Link>
                 </Button>
